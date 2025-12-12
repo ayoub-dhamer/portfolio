@@ -258,8 +258,21 @@
                     </div>
                     
                     <div class="flex space-x-4">
-                        <a href="#" class="px-6 py-3 rounded-full btn-primary font-medium">Download CV</a>
+                       <a href="#" onclick="openCV('FR')" class="px-6 py-3 rounded-full btn-primary font-medium">CV in French</a>
+                        <a href="#" onclick="openCV('EN')" class="px-6 py-3 rounded-full btn-primary font-medium">CV in English</a>
                         <a href="#contact" class="px-6 py-3 rounded-full border border-primary text-primary font-medium hover:bg-primary/10 transition">Contact Me</a>
+                <script>
+function openCV(lang) {
+    const files = {
+        FR: "cvs/Ayoub-Dhamer-CV-FR.pdf",
+        EN: "cvs/Ayoub-Dhamer-CV-EN.pdf"
+    };
+
+    window.open(files[lang], "_blank");
+}
+</script>
+
+
                     </div>
                 </div>
             </div>
