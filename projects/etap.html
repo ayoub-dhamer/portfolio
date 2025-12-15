@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Project Details | Portfolio</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0ea5e9',
+                        secondary: '#7e22ce',
+                        dark: '#0f172a',
+                        darker: '#020617',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            box-shadow: 5px 5px 15px rgba(2, 6, 23, 0.5),
+                        -5px -5px 15px rgba(30, 41, 59, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="fixed w-full bg-darker/80 backdrop-blur-sm z-50 shadow-lg">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="../index.html" class="text-2xl font-bold gradient-text">Portfolio</a>
+        <a href="../index.html#projects" class="text-primary hover:underline">
+            ← Back to Projects
+        </a>
+    </div>
+</nav>
+
+<!-- Content -->
+<section class="pt-32 pb-20">
+    <div class="container mx-auto px-6 max-w-4xl">
+
+        <!-- Project Title -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                Platform Dedicated to the Management of all the Services and Activitivities of ETAP (Entreprise Tunisienne d’Activités Pétrolières)
+            </h1>
+            <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+        </div>
+
+      <!-- Context & Objective -->
+<div class="card rounded-xl p-8 mb-8">
+    <h2 class="text-2xl font-bold mb-4 gradient-text">
+        Context & Objective
+    </h2>
+
+    <p class="text-slate-400 leading-relaxed mb-6">
+        The objective of this project was to design and implement a dynamic web application
+        aimed at automating and digitizing ETAP’s administrative and operational processes,
+        with a particular focus on client management, service orders, and document handling.
+    </p>
+
+    <h3 class="text-lg font-semibold text-slate-200 mb-3">Company Context</h3>
+    <p class="text-slate-400 leading-relaxed mb-4">
+        ETAP (Entreprise Tunisienne des Activités Pétrolières) is the national entity
+        responsible for managing Tunisia’s petroleum and natural gas resources. Its core
+        activities include:
+    </p>
+
+    <ul class="list-disc list-inside text-slate-400 space-y-2 mb-6">
+        <li>Exploration and production of oil and gas resources</li>
+        <li>Promotion and development of hydrocarbon projects</li>
+        <li>Management of technical and economic studies</li>
+        <li>Supply of gas and crude oil to the national market</li>
+    </ul>
+
+    <p class="text-slate-400 leading-relaxed">
+        Prior to this project, ETAP relied heavily on paper-based workflows for managing
+        client records, service orders, and document approvals. This traditional approach
+        resulted in operational inefficiencies, processing delays, and increased risks
+        related to document loss and data inconsistency.
+    </p>
+</div>
+
+<!-- Problem Statement -->
+<div class="card rounded-xl p-8 mb-8">
+    <h2 class="text-2xl font-bold mb-4 gradient-text">
+        Problem Statement
+    </h2>
+
+    <p class="text-slate-400 leading-relaxed mb-4">
+        The analysis of the existing system revealed several critical issues:
+    </p>
+
+    <ul class="list-disc list-inside text-slate-400 space-y-2">
+        <li>Excessive reliance on paper-based documentation</li>
+        <li>High risk of document loss and data inconsistency</li>
+        <li>Limited accessibility to archived records</li>
+        <li>Time-consuming and error-prone manual workflows</li>
+    </ul>
+</div>
+
+<!-- Proposed Solution -->
+<div class="card rounded-xl p-8 mb-8">
+    <h2 class="text-2xl font-bold mb-4 gradient-text">
+        Proposed Solution
+    </h2>
+
+    <p class="text-slate-400 leading-relaxed">
+        The proposed solution consists of a secure, web-based management system designed to
+        automate client handling, service order processing, digital signatures, and document
+        tracking. The platform streamlines administrative operations while ensuring improved
+        data reliability, faster processing times, and enhanced traceability across all
+        workflows.
+    </p>
+</div>
+
+
+        <!-- Technologies -->
+        <div class="card rounded-xl p-8">
+            <h2 class="text-2xl font-bold mb-6 gradient-text">
+                Technologies Used
+            </h2>
+
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 bg-slate-700 rounded-full">Angular</span>
+                <span class="px-4 py-2 bg-slate-700 rounded-full">NodeJS</span>
+                <span class="px-4 py-2 bg-slate-700 rounded-full">ExpressJS</span>
+                <span class="px-4 py-2 bg-slate-700 rounded-full">MySQL</span>
+                <span class="px-4 py-2 bg-slate-700 rounded-full">REST API</span>
+                <span class="px-4 py-2 bg-slate-700 rounded-full">Docker</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-darker py-8 text-center">
+    <p class="text-slate-500">
+        © 2025 Ayoub Dhamer — All rights reserved.
+    </p>
+</footer>
+</body>
+</html>

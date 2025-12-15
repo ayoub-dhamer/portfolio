@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Project Details | Portfolio</title>
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0ea5e9',
+                        secondary: '#7e22ce',
+                        dark: '#0f172a',
+                        darker: '#020617',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+
+        .gradient-text {
+            background: linear-gradient(90deg, #0ea5e9, #7e22ce);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #1e293b, #0f172a);
+            box-shadow: 5px 5px 15px rgba(2, 6, 23, 0.5),
+                        -5px -5px 15px rgba(30, 41, 59, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="fixed w-full bg-darker/80 backdrop-blur-sm z-50 shadow-lg">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+        <a href="../index.html" class="text-2xl font-bold gradient-text">Portfolio</a>
+        <a href="../index.html#projects" class="text-primary hover:underline">
+            ← Back to Projects
+        </a>
+    </div>
+</nav>
+
+<!-- Content -->
+<section class="pt-32 pb-20">
+    <div class="container mx-auto px-6 max-w-4xl">
+
+        <!-- Project Title -->
+        <div class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                Electronics Shop & Repair Management Mobile Application
+            </h1>
+            <div class="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto"></div>
+        </div>
+
+<!-- Context & Objective -->
+<div class="card rounded-xl p-8 mb-8">
+    <h2 class="text-2xl font-bold mb-4 gradient-text">
+        Context & Objective
+    </h2>
+
+    <p class="text-slate-400 leading-relaxed mb-6">
+        This mobile application was developed for a small electronics retail shop to digitalize
+        both product sales and repair services within a single platform. The app provides a seamless
+        experience for customers to browse and purchase electronics while allowing them to track
+        the repair status of their personal devices handled by the shop.
+    </p>
+
+    <h3 class="text-lg font-semibold text-slate-200 mb-3">Objectives</h3>
+    <ul class="list-disc list-inside text-slate-400 space-y-2">
+        <li>Simplify the management of an electronics shop through a mobile platform</li>
+        <li>Provide customers with real-time visibility into their repair requests</li>
+        <li>Centralize product sales, customer accounts, and repair tracking</li>
+        <li>Improve customer experience and operational efficiency for the shop owner</li>
+        <li>Implement role-based access with dedicated features for Customers and the Shop Owner</li>
+    </ul>
+</div>
+
+<!-- Customer Features -->
+<div class="card rounded-xl p-8 mb-8">
+    <h2 class="text-2xl font-bold mb-4 gradient-text">
+        Customer Features
+    </h2>
+
+    <p class="text-slate-400 leading-relaxed mb-6">
+        Customers can create a personal account and access a complete set of features designed
+        to simplify shopping and repair tracking.
+    </p>
+
+    <div class="space-y-6 text-slate-400">
+
+        <div>
+            <strong class="text-slate-200">User Authentication</strong>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>Account creation and secure login</li>
+                <li>Profile management and personal information updates</li>
+            </ul>
+        </div>
+
+        <div>
+            <strong class="text-slate-200">Product Browsing & Shopping</strong>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>Browse electronics products (PCs, smartphones, gaming accessories, peripherals)</li>
+                <li>Search products by name or category</li>
+                <li>View detailed product descriptions and prices</li>
+                <li>Add products to cart and complete purchases</li>
+            </ul>
+        </div>
+
+        <div>
+            <strong class="text-slate-200">Purchase Management</strong>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>View purchase history</li>
+                <li>Track previous orders</li>
+            </ul>
+        </div>
+
+        <div>
+            <strong class="text-slate-200">Repair Tracking</strong>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>View devices submitted for repair</li>
+                <li>Track repair status (pending, in progress, fixed)</li>
+                <li>Receive confirmation when a device is repaired</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<!-- Shop Owner Features -->
+<div class="card rounded-xl p-8 mb-8">
+    <h2 class="text-2xl font-bold mb-4 gradient-text">
+        Shop Owner (Admin) Features
+    </h2>
+
+    <p class="text-slate-400 leading-relaxed mb-6">
+        The shop owner has access to an administrative interface with full control over users,
+        products, and repair services.
+    </p>
+
+    <div class="space-y-6 text-slate-400">
+
+        <div>
+            <strong class="text-slate-200">User Management</strong>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>View the list of registered users</li>
+                <li>Delete user accounts when necessary</li>
+            </ul>
+        </div>
+
+        <div>
+            <strong class="text-slate-200">Product Management</strong>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>Add new products to the shop</li>
+                <li>Update product details (price, description, availability)</li>
+                <li>Remove products from the catalog</li>
+            </ul>
+        </div>
+
+        <div>
+            <strong class="text-slate-200">Repair Management</strong>
+            <ul class="list-disc list-inside mt-2 space-y-1">
+                <li>Register customer devices for repair</li>
+                <li>Update repair status (not fixed, in progress, fixed)</li>
+                <li>Allow customers to track repair progress in real time</li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<!-- Technical & Functional Highlights -->
+<div class="card rounded-xl p-8 mb-8">
+    <h2 class="text-2xl font-bold mb-4 gradient-text">
+        Technical & Functional Highlights
+    </h2>
+
+    <ul class="list-disc list-inside text-slate-400 space-y-2">
+        <li>Role-based access control (Customer / Admin)</li>
+        <li>Centralized database for users, products, purchases, and repairs</li>
+        <li>Real-time repair status updates visible to customers</li>
+        <li>Simple, intuitive, and mobile-friendly user interface</li>
+        <li>Architecture designed for small businesses with scalability in mind</li>
+    </ul>
+</div>
+
+<!-- Value & Impact -->
+<div class="card rounded-xl p-8 mb-8">
+    <h2 class="text-2xl font-bold mb-4 gradient-text">
+        Value & Impact
+    </h2>
+
+    <ul class="list-disc list-inside text-slate-400 space-y-2">
+        <li>Reduces manual paperwork and operational overhead</li>
+        <li>Improves customer communication and transparency</li>
+        <li>Centralizes sales and repair management in one system</li>
+        <li>Provides a professional and modern experience for customers</li>
+    </ul>
+</div>
+
+
+
+        <!-- Media Section -->
+<!-- Media Section -->
+<div class="card rounded-xl p-8 mb-8">
+    <h2 class="text-2xl font-bold mb-6 gradient-text">
+        Media & Screenshots
+    </h2>
+
+    <!-- Gallery -->
+    <div id="gallery"
+         class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8">
+        <!-- Images injected by JS -->
+    </div>
+
+    <!-- Pagination -->
+    <div class="flex justify-center items-center space-x-2" id="pagination">
+        <!-- Pagination injected by JS -->
+    </div>
+</div>
+
+
+
+        <!-- Technologies -->
+        <div class="card rounded-xl p-8">
+            <h2 class="text-2xl font-bold mb-6 gradient-text">
+                Technologies Used
+            </h2>
+
+            <div class="flex flex-wrap gap-3">
+                <span class="px-4 py-2 bg-slate-700 rounded-full">Java</span>
+                <span class="px-4 py-2 bg-slate-700 rounded-full">Android</span>
+                <span class="px-4 py-2 bg-slate-700 rounded-full">SQLite</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-darker py-8 text-center">
+    <p class="text-slate-500">
+        © 2025 Ayoub Dhamer — All rights reserved.
+    </p>
+</footer>
+
+<!-- Image Preview Modal -->
+<div id="image-modal" class="fixed inset-0 bg-black/80 hidden items-center justify-center z-50">
+    <div class="relative max-w-4xl w-full mx-6 flex items-center">
+        <!-- Previous Button -->
+        <button onclick="prevImage()"
+                class="absolute left-0 text-white text-3xl px-4 py-2 hover:text-primary">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+
+        <!-- Image -->
+        <img id="modal-image"
+     src=""
+     alt="Preview"
+     class="rounded-xl shadow-2xl mx-auto max-w-full max-h-[80vh] object-contain">
+
+
+        <!-- Next Button -->
+        <button onclick="nextImage()"
+                class="absolute right-0 text-white text-3xl px-4 py-2 hover:text-primary">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+
+        <!-- Close Button -->
+        <button onclick="closeImageModal()"
+                class="absolute -top-10 right-0 text-white text-3xl hover:text-primary">
+            &times;
+        </button>
+    </div>
+</div>
+
+
+<script>
+   
+
+
+    /* ================================
+       CONFIG
+    ================================= */
+    const totalImages = 26;
+    const imagesPerPage = 6;
+    const imagePath = "../images/eshop/";
+    let currentPage = 1;
+    let currentImageIndex = 1;
+
+    /* ================================
+       MODAL
+    ================================= */
+   function openImageModal(src) {
+    const match = src.match(/eshop(\d+)\.jpg$/);
+    if (match) {
+        currentImageIndex = parseInt(match[1]);
+    }
+
+    document.getElementById('modal-image').src = src;
+    document.getElementById('image-modal').classList.remove('hidden');
+    document.getElementById('image-modal').classList.add('flex');
+}
+
+
+    function closeImageModal() {
+        document.getElementById('image-modal').classList.add('hidden');
+        document.getElementById('image-modal').classList.remove('flex');
+    }
+
+    function nextImage() {
+    if (currentImageIndex < totalImages) {
+        currentImageIndex++;
+        document.getElementById('modal-image').src =
+            `${imagePath}eshop${currentImageIndex}.jpg`;
+    }
+}
+
+function prevImage() {
+    if (currentImageIndex > 1) {
+        currentImageIndex--;
+        document.getElementById('modal-image').src =
+            `${imagePath}eshop${currentImageIndex}.jpg`;
+    }
+}
+
+document.addEventListener("keydown", function (e) {
+    const modalOpen = !document.getElementById('image-modal').classList.contains('hidden');
+
+    if (!modalOpen) return;
+
+    if (e.key === "Escape") {
+        closeImageModal();
+    }
+
+    if (e.key === "ArrowRight") {
+        nextImage();
+    }
+
+    if (e.key === "ArrowLeft") {
+        prevImage();
+    }
+});
+
+
+
+    /* ================================
+       GALLERY RENDER
+    ================================= */
+    function renderGallery() {
+        const gallery = document.getElementById("gallery");
+        gallery.innerHTML = "";
+
+        const start = (currentPage - 1) * imagesPerPage + 1;
+        const end = Math.min(start + imagesPerPage - 1, totalImages);
+
+        for (let i = start; i <= end; i++) {
+            const imgSrc = `${imagePath}eshop${i}.jpg`;
+
+            gallery.innerHTML += `
+                <div class="group relative cursor-pointer"
+                     onclick="openImageModal('${imgSrc}')">
+                    <img src="${imgSrc}"
+                         alt="EShop Screenshot ${i}"
+                         class="rounded-lg object-cover w-full h-48 transition-transform duration-300 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
+                        <i class="fas fa-search-plus text-2xl text-white"></i>
+                    </div>
+                </div>
+            `;
+        }
+
+        renderPagination();
+    }
+
+    /* ================================
+       PAGINATION
+    ================================= */
+    function renderPagination() {
+        const pagination = document.getElementById("pagination");
+        pagination.innerHTML = "";
+
+        const totalPages = Math.ceil(totalImages / imagesPerPage);
+
+        // Prev button
+        pagination.innerHTML += `
+            <button onclick="changePage(${currentPage - 1})"
+                class="px-3 py-1 rounded-lg bg-slate-700 hover:bg-primary transition
+                       ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}">
+                Prev
+            </button>
+        `;
+
+        // Page numbers
+        for (let i = 1; i <= totalPages; i++) {
+            pagination.innerHTML += `
+                <button onclick="changePage(${i})"
+                    class="px-3 py-1 rounded-lg transition
+                           ${i === currentPage
+                            ? 'bg-primary text-white'
+                            : 'bg-slate-700 hover:bg-slate-600'}">
+                    ${i}
+                </button>
+            `;
+        }
+
+        // Next button
+        pagination.innerHTML += `
+            <button onclick="changePage(${currentPage + 1})"
+                class="px-3 py-1 rounded-lg bg-slate-700 hover:bg-primary transition
+                       ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}">
+                Next
+            </button>
+        `;
+    }
+
+    function changePage(page) {
+        const totalPages = Math.ceil(totalImages / imagesPerPage);
+        if (page < 1 || page > totalPages) return;
+        currentPage = page;
+        renderGallery();
+    }
+
+    // Init
+    renderGallery();
+</script>
+
+
+</body>
+</html>
