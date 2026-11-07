@@ -365,18 +365,33 @@
           </ul>
         </div>
 
-        <!-- Media Section -->
+        <!-- Media Section: Light Mode -->
         <div class="card rounded-xl p-8 mb-8">
           <h2 class="text-2xl font-bold mb-6 gradient-text">
-            Media & Screenshots
+            <i class="fas fa-sun mr-2"></i>Screenshots – Light Mode
           </h2>
           <div
-            id="gallery"
+            id="gallery-light"
             class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8"
           ></div>
           <div
-            class="flex justify-center items-center space-x-2"
-            id="pagination"
+            class="flex flex-wrap justify-center items-center gap-2"
+            id="pagination-light"
+          ></div>
+        </div>
+
+        <!-- Media Section: Dark Mode -->
+        <div class="card rounded-xl p-8 mb-8">
+          <h2 class="text-2xl font-bold mb-6 gradient-text">
+            <i class="fas fa-moon mr-2"></i>Screenshots – Dark Mode
+          </h2>
+          <div
+            id="gallery-dark"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8"
+          ></div>
+          <div
+            class="flex flex-wrap justify-center items-center gap-2"
+            id="pagination-dark"
           ></div>
         </div>
 
@@ -449,25 +464,47 @@
 
     <script>
       /* ================================
-       CONFIG — update totalImages when you add screenshots
+       CONFIG — update totalImages per gallery when you add screenshots
+       Files: images/saleti/light/saleti-light1.jpg ... saleti-light53.jpg
+              images/saleti/dark/saleti-dark1.jpg  ... saleti-dark53.jpg
     ================================= */
-      const totalImages = 51;
       const imagesPerPage = 6;
-      const imagePath = "../images/saleti/";
-      let currentPage = 1;
+      const galleries = {
+        light: {
+          total: 53,
+          page: 1,
+          path: "../images/saleti/light/",
+          prefix: "saleti-light",
+        },
+        dark: {
+          total: 53,
+          page: 1,
+          path: "../images/saleti/dark/",
+          prefix: "saleti-dark",
+        },
+      };
+
+      let activeGallery = "light";
       let currentImageIndex = 1;
 
       document.getElementById("year").textContent = new Date().getFullYear();
 
-      /* ================================
-       MODAL
-    ================================= */
-      function showModalImage() {
-        document.getElementById("modal-image").src =
-          `${imagePath}saleti${currentImageIndex}.jpg`;
+      function imageSrc(key, i) {
+        const g = galleries[key];
+        return `${g.path}${g.prefix}${i}.jpg`;
       }
 
-      function openImageModal(index) {
+      /* ================================
+       MODAL (shared by both galleries)
+    ================================= */
+      function showModalImage() {
+        const img = document.getElementById("modal-image");
+        img.src = imageSrc(activeGallery, currentImageIndex);
+        img.alt = `Saleti ${activeGallery} mode screenshot ${currentImageIndex}`;
+      }
+
+      function openImageModal(key, index) {
+        activeGallery = key;
         currentImageIndex = index;
         showModalImage();
         const modal = document.getElementById("image-modal");
@@ -482,7 +519,7 @@
       }
 
       function nextImage() {
-        if (currentImageIndex < totalImages) {
+        if (currentImageIndex < galleries[activeGallery].total) {
           currentImageIndex++;
           showModalImage();
         }
@@ -506,15 +543,16 @@
       /* ================================
        GALLERY RENDER
     ================================= */
-      function renderGallery() {
-        const start = (currentPage - 1) * imagesPerPage + 1;
-        const end = Math.min(start + imagesPerPage - 1, totalImages);
+      function renderGallery(key) {
+        const g = galleries[key];
+        const start = (g.page - 1) * imagesPerPage + 1;
+        const end = Math.min(start + imagesPerPage - 1, g.total);
         let html = "";
 
         for (let i = start; i <= end; i++) {
           html += `
-                <div class="group relative cursor-pointer" onclick="openImageModal(${i})">
-                    <img src="${imagePath}saleti${i}.jpg" alt="Saleti Screenshot ${i}" loading="lazy"
+                <div class="group relative cursor-pointer" onclick="openImageModal('${key}', ${i})">
+                    <img src="${imageSrc(key, i)}" alt="Saleti ${key} mode screenshot ${i}" loading="lazy"
                          class="rounded-lg object-cover w-full h-48 transition-transform duration-300 group-hover:scale-105">
                     <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center rounded-lg">
                         <i class="fas fa-search-plus text-2xl text-white"></i>
@@ -522,41 +560,43 @@
                 </div>`;
         }
 
-        document.getElementById("gallery").innerHTML = html;
-        renderPagination();
+        document.getElementById(`gallery-${key}`).innerHTML = html;
+        renderPagination(key);
       }
 
       /* ================================
        PAGINATION
     ================================= */
-      function renderPagination() {
-        const totalPages = Math.ceil(totalImages / imagesPerPage);
+      function renderPagination(key) {
+        const g = galleries[key];
+        const totalPages = Math.ceil(g.total / imagesPerPage);
         const dim = "opacity-50 cursor-not-allowed";
         let html = `
-            <button onclick="changePage(${currentPage - 1})" ${currentPage === 1 ? "disabled" : ""}
-                class="px-3 py-1 rounded-lg bg-slate-700 hover:bg-primary transition ${currentPage === 1 ? dim : ""}">Prev</button>`;
+            <button onclick="changePage('${key}', ${g.page - 1})" ${g.page === 1 ? "disabled" : ""}
+                class="px-3 py-1 rounded-lg bg-slate-700 hover:bg-primary transition ${g.page === 1 ? dim : ""}">Prev</button>`;
 
         for (let i = 1; i <= totalPages; i++) {
           html += `
-                <button onclick="changePage(${i})"
-                    class="px-3 py-1 rounded-lg transition ${i === currentPage ? "bg-primary text-white" : "bg-slate-700 hover:bg-slate-600"}">${i}</button>`;
+                <button onclick="changePage('${key}', ${i})"
+                    class="px-3 py-1 rounded-lg transition ${i === g.page ? "bg-primary text-white" : "bg-slate-700 hover:bg-slate-600"}">${i}</button>`;
         }
 
         html += `
-            <button onclick="changePage(${currentPage + 1})" ${currentPage === totalPages ? "disabled" : ""}
-                class="px-3 py-1 rounded-lg bg-slate-700 hover:bg-primary transition ${currentPage === totalPages ? dim : ""}">Next</button>`;
+            <button onclick="changePage('${key}', ${g.page + 1})" ${g.page === totalPages ? "disabled" : ""}
+                class="px-3 py-1 rounded-lg bg-slate-700 hover:bg-primary transition ${g.page === totalPages ? dim : ""}">Next</button>`;
 
-        document.getElementById("pagination").innerHTML = html;
+        document.getElementById(`pagination-${key}`).innerHTML = html;
       }
 
-      function changePage(page) {
-        const totalPages = Math.ceil(totalImages / imagesPerPage);
+      function changePage(key, page) {
+        const totalPages = Math.ceil(galleries[key].total / imagesPerPage);
         if (page < 1 || page > totalPages) return;
-        currentPage = page;
-        renderGallery();
+        galleries[key].page = page;
+        renderGallery(key);
       }
 
-      renderGallery();
+      renderGallery("light");
+      renderGallery("dark");
     </script>
   </body>
 </html>
